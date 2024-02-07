@@ -7,11 +7,13 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
     uploadPhoto(fileName),
   ]).then((values) => {
     const arr = [];
-if (item.status === 'rejected') {
-	for (const item of values) {
-      arr.push({ status: item.status, value: item.value || item.reason });
-    }
-	}
-    return arr;
-  });
+	  for (const item of values) {
+	        if (item.status === 'rejected') {
+		arr.push({ status: item.status, value: item.reason });
+	      } else {
+	      arr.push({ status: item.status, value: item.value });
+            }
+	    }
+	      return arr;
+	    });
 }

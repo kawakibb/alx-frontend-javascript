@@ -8,4 +8,3 @@ export default function groceriesList() {
 
       return items;
 }
-
